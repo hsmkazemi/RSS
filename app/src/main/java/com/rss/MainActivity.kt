@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
         initialRecView()
         lifecycleScope.launch {
             val response = Retrofit.Builder().baseUrl("https://newsapi.org/v2/")
-                .addConverterFactory(GsonConverterFactory.create()).build().create(API::class.java).getNews("techcrunch",getString(R.string.API_Key))
+                .addConverterFactory(GsonConverterFactory.create()).build().create(API::class.java)
+                .getNews("techcrunch", getString(R.string.API_Key))
         }
     }
 
