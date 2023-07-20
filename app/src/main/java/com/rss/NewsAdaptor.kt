@@ -1,14 +1,16 @@
 package com.rss
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 
-class NewsAdaptor(var newsList: MutableList<News>) :
+class NewsAdaptor(var newsList: MutableList<News>, var context: Context) :
     RecyclerView.Adapter<NewsAdaptor.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView
@@ -41,6 +43,7 @@ class NewsAdaptor(var newsList: MutableList<News>) :
             title.text = newsList[position].title
             description.text = newsList[position].description
             author.text = newsList[position].author
+            Glide.with(context).load(newsList[position].urlToImage).into(image)
         }
     }
 
