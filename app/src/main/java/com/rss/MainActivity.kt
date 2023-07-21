@@ -1,11 +1,13 @@
 package com.rss
 
+import android.icu.lang.UCharacter.VerticalOrientation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
@@ -39,5 +41,7 @@ class MainActivity : AppCompatActivity() {
         val newsAdaptor = NewsAdaptor(newsList, this)
         recView.adapter = newsAdaptor
         recView.layoutManager = LinearLayoutManager(this)
+        val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        recView.addItemDecoration(dividerItemDecoration)
     }
 }

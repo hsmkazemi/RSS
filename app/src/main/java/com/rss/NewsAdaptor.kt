@@ -42,7 +42,8 @@ class NewsAdaptor(var newsList: MutableList<News>, var context: Context) :
         holder.apply {
             title.text = newsList[position].title
             description.text = newsList[position].description
-            author.text = newsList[position].author
+            author.text =
+                newsList[position].author + " [" + newsList[position].publishedAt.dropLast(10) + "]"
             Glide.with(context).load(newsList[position].urlToImage).into(image)
         }
     }
