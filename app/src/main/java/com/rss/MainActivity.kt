@@ -2,6 +2,9 @@ package com.rss
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,11 +18,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initialRecView()
         lifecycleScope.launch {
+            val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+            progressBar.isVisible = true
             val response = Retrofit.Builder().baseUrl("https://newsapi.org/v2/")
                 .addConverterFactory(GsonConverterFactory.create()).build().create(API::class.java)
                 .getNews("techcrunch", getString(R.string.API_Key))
+            if (response.isSuccessful && response.body() != null) {
+                newsList.addAll(response.body()!!.articles)
+                initialRecView()
+                progressBar.isVisible = false
+            } else {
+                Log.e("responseTest", "error to get the information")
+            }
         }
     }
 
