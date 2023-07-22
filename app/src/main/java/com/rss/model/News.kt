@@ -1,4 +1,4 @@
-package com.rss
+package com.rss.model
 
 data class News(
     val author: String,

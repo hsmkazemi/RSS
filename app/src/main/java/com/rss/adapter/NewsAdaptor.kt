@@ -1,4 +1,4 @@
-package com.rss
+package com.rss.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.rss.model.News
+import com.rss.R
+import com.rss.activities.WebPageActivity
 
 
 class NewsAdaptor(var newsList: MutableList<News>, var context: Context) :

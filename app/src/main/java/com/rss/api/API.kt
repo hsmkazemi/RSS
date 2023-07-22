@@ -1,5 +1,6 @@
-package com.rss
+package com.rss.api
 
+import com.rss.model.ResponseModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

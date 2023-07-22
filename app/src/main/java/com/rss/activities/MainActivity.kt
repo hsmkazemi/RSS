@@ -1,6 +1,5 @@
-package com.rss
+package com.rss.activities
 
-import android.icu.lang.UCharacter.VerticalOrientation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +9,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.rss.api.API
+import com.rss.model.News
+import com.rss.adapter.NewsAdaptor
+import com.rss.R
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

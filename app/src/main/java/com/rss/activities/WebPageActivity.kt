@@ -1,8 +1,9 @@
-package com.rss
+package com.rss.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
+import com.rss.R
 
 class WebPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
